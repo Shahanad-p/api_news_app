@@ -39,6 +39,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
       ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 20),
