@@ -4,6 +4,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/model/news_headlines_model.dart';
+import 'package:news_app/view/category_screen.dart';
 import 'package:news_app/view_model/news_view_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
   String name = 'bbc-news';
   filterList? selectedMenu;
   NewsViewModel newsViewModel = NewsViewModel();
-  final format = DateFormat('MMMM dd,yyyy');
+  final format = DateFormat('MMMM dd, yyyy');
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width * 1;
@@ -33,8 +34,12 @@ class _HomeScreenState extends State<HomeScreen> {
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
-        leading: const Icon(
-          Icons.apps,
+        leading: IconButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => CategoryScreen()));
+          },
+          icon: Icon(Icons.apps),
           color: Colors.black,
         ),
         actions: [
