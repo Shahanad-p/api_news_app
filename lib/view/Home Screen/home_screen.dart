@@ -5,9 +5,9 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/model/catgories_new_model.dart';
 import 'package:news_app/model/news_headlines_model.dart';
-import 'package:news_app/view/category_details_screen.dart';
-import 'package:news_app/view/category_screen.dart';
-import 'package:news_app/view/home_news_details_screen.dart';
+import 'package:news_app/view/Category%20Details/category_details_screen.dart';
+import 'package:news_app/view/Category%20Screen/category_screen.dart';
+import 'package:news_app/view/Home%20Details%20Screen/home_news_details_screen.dart';
 import 'package:news_app/view_model/news_view_model.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -345,8 +345,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                       const Spacer(),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
                                         children: [
                                           Text(
                                             snapshot.data!.articles![index]
