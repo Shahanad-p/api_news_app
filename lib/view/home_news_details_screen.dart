@@ -4,9 +4,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class DetailsScreen extends StatefulWidget {
+class HomeDetailsScreen extends StatefulWidget {
   String newsImage, newsTitle, newsDate, author, description, content, source;
-  DetailsScreen(
+  HomeDetailsScreen(
       {super.key,
       required this.newsImage,
       required this.newsTitle,
@@ -17,10 +17,10 @@ class DetailsScreen extends StatefulWidget {
       required this.source});
 
   @override
-  State<DetailsScreen> createState() => _DetailsScreenState();
+  State<HomeDetailsScreen> createState() => _HomeDetailsScreenState();
 }
 
-class _DetailsScreenState extends State<DetailsScreen> {
+class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
   final format = DateFormat('MMMM dd, yyyy');
   @override
   Widget build(BuildContext context) {
