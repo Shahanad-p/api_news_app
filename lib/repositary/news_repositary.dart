@@ -1,3 +1,4 @@
+// ignore_for_file: non_constant_identifier_names
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -8,7 +9,7 @@ class NewsRepositary {
   Future<NewsHeadlinesModel> fetchNewsHeadlinesFromApi(
       String channelName) async {
     String url =
-        'https://newsapi.org/v2/top-headlines?sources=${channelName}&apiKey=e1986a67fad34d8aab402c1607c76323';
+        'https://newsapi.org/v2/top-headlines?sources=$channelName&apiKey=e1986a67fad34d8aab402c1607c76323';
 
     final Response = await http.get(Uri.parse(url));
 
@@ -25,7 +26,7 @@ class NewsRepositary {
   Future<CategoriesNewsModel> fetchCategoriesNewsFromApi(
       String category) async {
     String url =
-        'https://newsapi.org/v2/everything?q=${category}&apiKey=e1986a67fad34d8aab402c1607c76323';
+        'https://newsapi.org/v2/everything?q=$category&apiKey=e1986a67fad34d8aab402c1607c76323';
 
     final Response = await http.get(Uri.parse(url));
 

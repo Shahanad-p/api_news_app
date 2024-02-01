@@ -23,9 +23,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final height = MediaQuery.sizeOf(context).height * 1;
-    // final width = MediaQuery.sizeOf(context).width * 1;
-    // Size size = MediaQuery.of(context).size;
     return const Scaffold(
       body: SizedBox(
           height: double.infinity,

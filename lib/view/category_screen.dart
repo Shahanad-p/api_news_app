@@ -32,17 +32,17 @@ class _CategoryScreenState extends State<CategoryScreen> {
     final height = MediaQuery.sizeOf(context).height * 1;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Categories',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Column(
           children: [
             SizedBox(
@@ -57,7 +57,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                       setState(() {});
                     },
                     child: Padding(
-                      padding: EdgeInsets.only(right: 12),
+                      padding: const EdgeInsets.only(right: 12),
                       child: Container(
                         decoration: BoxDecoration(
                             color: categoryName == categoriesList[index]
@@ -65,7 +65,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                 : Colors.grey,
                             borderRadius: BorderRadius.circular(20)),
                         child: Padding(
-                          padding: EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(15),
                           child: Text(
                             categoriesList[index].toString(),
                             style: GoogleFonts.poppins(
@@ -80,7 +80,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                 },
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Expanded(
               child: FutureBuilder<CategoriesNewsModel>(
                 future: newsViewModel.fetchCategoriesNewsFromApi(categoryName),
@@ -131,7 +131,7 @@ class _CategoryScreenState extends State<CategoryScreen> {
                               Expanded(
                                 child: Container(
                                   height: height * .18,
-                                  padding: EdgeInsets.only(left: 15),
+                                  padding: const EdgeInsets.only(left: 15),
                                   child: Column(
                                     children: [
                                       Text(
@@ -163,7 +163,6 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                             format.format(dateTime),
                                             style: GoogleFonts.poppins(
                                               fontSize: 12,
-                                              // color: Colors.black54,
                                               fontWeight: FontWeight.w600,
                                             ),
                                           ),

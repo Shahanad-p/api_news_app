@@ -16,11 +16,11 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-enum filterList { bbcNews, aryNews, bleacherReport, reuters, cnn, alJazeera }
+enum FilterList { bbcNews, aryNews, bleacherReport, reuters, cnn, alJazeera }
 
 class _HomeScreenState extends State<HomeScreen> {
   String name = 'bbc-news';
-  filterList? selectedMenu;
+  FilterList? selectedMenu;
   NewsViewModel newsViewModel = NewsViewModel();
   final format = DateFormat('MMMM dd, yyyy');
   @override
@@ -38,65 +38,67 @@ class _HomeScreenState extends State<HomeScreen> {
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
-            Navigator.push(context,
-                MaterialPageRoute(builder: (context) => CategoryScreen()));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CategoryScreen()));
           },
-          icon: Icon(Icons.apps),
+          icon: const Icon(Icons.apps),
           color: Colors.black,
         ),
         actions: [
-          PopupMenuButton<filterList>(
+          PopupMenuButton<FilterList>(
               initialValue: selectedMenu,
-              icon: Icon(
+              icon: const Icon(
                 Icons.more_vert,
                 color: Colors.black,
               ),
-              onSelected: (filterList item) {
-                if (filterList.bbcNews.name == item.name) {
+              onSelected: (FilterList item) {
+                if (FilterList.bbcNews.name == item.name) {
                   name = 'bbc-news';
                 }
-                if (filterList.aryNews.name == item.name) {
+                if (FilterList.aryNews.name == item.name) {
                   name = 'ary-news';
                 }
-                if (filterList.bleacherReport.name == item.name) {
+                if (FilterList.bleacherReport.name == item.name) {
                   name = 'bleacher-report';
                 }
-                if (filterList.reuters.name == item.name) {
+                if (FilterList.reuters.name == item.name) {
                   name = 'reuters';
                 }
-                if (filterList.cnn.name == item.name) {
+                if (FilterList.cnn.name == item.name) {
                   name = 'cnn';
                 }
-                if (filterList.alJazeera.name == item.name) {
+                if (FilterList.alJazeera.name == item.name) {
                   name = 'al-jazeera-english';
                 }
                 setState(() {
                   selectedMenu = item;
                 });
               },
-              itemBuilder: (context) => <PopupMenuEntry<filterList>>[
-                    PopupMenuItem<filterList>(
-                      value: filterList.bbcNews,
+              itemBuilder: (context) => <PopupMenuEntry<FilterList>>[
+                    const PopupMenuItem<FilterList>(
+                      value: FilterList.bbcNews,
                       child: Text('BBC News'),
                     ),
-                    PopupMenuItem<filterList>(
-                      value: filterList.aryNews,
+                    const PopupMenuItem<FilterList>(
+                      value: FilterList.aryNews,
                       child: Text('Ary News'),
                     ),
-                    PopupMenuItem<filterList>(
-                      value: filterList.bleacherReport,
+                    const PopupMenuItem<FilterList>(
+                      value: FilterList.bleacherReport,
                       child: Text('Bleacher Report'),
                     ),
-                    PopupMenuItem<filterList>(
-                      value: filterList.reuters,
+                    const PopupMenuItem<FilterList>(
+                      value: FilterList.reuters,
                       child: Text('Reuters'),
                     ),
-                    PopupMenuItem<filterList>(
-                      value: filterList.cnn,
+                    const PopupMenuItem<FilterList>(
+                      value: FilterList.cnn,
                       child: Text('CNN'),
                     ),
-                    PopupMenuItem<filterList>(
-                      value: filterList.alJazeera,
+                    const PopupMenuItem<FilterList>(
+                      value: FilterList.alJazeera,
                       child: Text('Al Jazeera'),
                     )
                   ])
@@ -183,14 +185,14 @@ class _HomeScreenState extends State<HomeScreen> {
                                       borderRadius: BorderRadius.circular(12)),
                                   child: Container(
                                     alignment: Alignment.bottomCenter,
-                                    padding: EdgeInsets.all(15),
+                                    padding: const EdgeInsets.all(15),
                                     child: Column(
                                       mainAxisAlignment:
                                           MainAxisAlignment.center,
                                       crossAxisAlignment:
                                           CrossAxisAlignment.center,
                                       children: [
-                                        Container(
+                                        SizedBox(
                                           width: width * 0.7,
                                           child: Text(
                                             snapshot
@@ -306,7 +308,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             Expanded(
                               child: Container(
                                 height: height * .18,
-                                padding: EdgeInsets.only(left: 15),
+                                padding: const EdgeInsets.only(left: 15),
                                 child: Column(
                                   children: [
                                     Text(

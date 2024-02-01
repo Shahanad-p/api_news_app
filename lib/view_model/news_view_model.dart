@@ -1,3 +1,4 @@
+// ignore_for_file: non_constant_identifier_names
 import 'package:news_app/model/catgories_new_model.dart';
 import 'package:news_app/model/news_headlines_model.dart';
 import 'package:news_app/repositary/news_repositary.dart';

@@ -24,26 +24,26 @@ class _DetailsScreenState extends State<DetailsScreen> {
   final format = DateFormat('MMMM dd, yyyy');
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.sizeOf(context).width * 1;
+    // final width = MediaQuery.sizeOf(context).width * 1;
     final height = MediaQuery.sizeOf(context).height * 1;
     DateTime dateTime = DateTime.parse(widget.newsDate);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
       ),
       body: Stack(
         children: [
-          Container(
+          SizedBox(
             height: height * .45,
             child: ClipRRect(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(40), topRight: Radius.circular(40)),
               child: CachedNetworkImage(
                 imageUrl: widget.newsImage,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => Center(
+                placeholder: (context, url) => const Center(
                   child: CircularProgressIndicator(),
                 ),
               ),
@@ -52,13 +52,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
           Container(
             height: height * .6,
             margin: EdgeInsets.only(top: height * .4),
-            padding: EdgeInsets.only(top: 20, right: 20, left: 20),
-            decoration: BoxDecoration(color: Colors.white),
+            padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
+            decoration: const BoxDecoration(color: Colors.white),
             child: ListView(
               children: [
                 Text(
                   widget.newsTitle,
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.w700),
+                  style: const TextStyle(
+                      fontSize: 22, fontWeight: FontWeight.w700),
                 ),
                 SizedBox(height: height * .02),
                 Row(
@@ -66,14 +67,14 @@ class _DetailsScreenState extends State<DetailsScreen> {
                   children: [
                     Text(
                       widget.source,
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                           color: Colors.grey),
                     ),
                     Text(
                       format.format(dateTime),
-                      style: TextStyle(
+                      style: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.w500,
                           color: Colors.grey),
@@ -85,7 +86,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ),
                 Text(
                   widget.description,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Color.fromARGB(255, 10, 90, 12)),
@@ -95,7 +96,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ),
                 Text(
                   widget.content,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Color.fromARGB(255, 72, 17, 17)),
@@ -105,10 +106,10 @@ class _DetailsScreenState extends State<DetailsScreen> {
                 ),
                 Text(
                   widget.author,
-                  style: TextStyle(
+                  style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
-                      color: const Color.fromARGB(255, 107, 104, 104)),
+                      color: Color.fromARGB(255, 107, 104, 104)),
                 ),
               ],
             ),
