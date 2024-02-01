@@ -29,6 +29,11 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
     DateTime dateTime = DateTime.parse(widget.newsDate);
     return Scaffold(
       appBar: AppBar(
+        title: const Text(
+          'Details',
+          style: TextStyle(color: Color.fromARGB(255, 10, 67, 12)),
+        ),
+        centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
         iconTheme: const IconThemeData(color: Colors.black),

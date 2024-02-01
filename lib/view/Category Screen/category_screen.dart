@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:news_app/model/catgories_new_model.dart';
 import 'package:news_app/view/Home%20Details%20Screen/home_news_details_screen.dart';
-import 'package:news_app/view_model/news_view_model.dart';
+import 'package:news_app/News%20View%20Model/news_view_model.dart';
 
 class CategoryScreen extends StatefulWidget {
   const CategoryScreen({super.key});
@@ -168,7 +168,9 @@ class _CategoryScreenState extends State<CategoryScreen> {
                                           ),
                                         ),
                                         const Spacer(),
-                                        Row(
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             Text(
                                               snapshot.data!.articles![index]

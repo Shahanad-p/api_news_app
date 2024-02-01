@@ -8,7 +8,7 @@ import 'package:news_app/model/news_headlines_model.dart';
 import 'package:news_app/view/Category%20Details/category_details_screen.dart';
 import 'package:news_app/view/Category%20Screen/category_screen.dart';
 import 'package:news_app/view/Home%20Details%20Screen/home_news_details_screen.dart';
-import 'package:news_app/view_model/news_view_model.dart';
+import 'package:news_app/News%20View%20Model/news_view_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -167,7 +167,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                     fit: BoxFit.cover,
                                     placeholder: (context, url) =>
                                         const SizedBox(
-                                      child: spinkit2,
+                                      child: SpinKitFadingFour(
+                                        color: Colors.amber,
+                                        size: 50,
+                                      ),
                                     ),
                                     errorWidget: (context, url, error) =>
                                         const Icon(
@@ -344,7 +347,9 @@ class _HomeScreenState extends State<HomeScreen> {
                                         ),
                                       ),
                                       const Spacer(),
-                                      Row(
+                                      Column(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.start,
                                         children: [
                                           Text(
                                             snapshot.data!.articles![index]
@@ -384,8 +389,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-const spinkit2 = SpinKitChasingDots(
-  color: Colors.amber,
-  size: 50,
-);
