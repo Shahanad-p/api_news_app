@@ -1,10 +1,12 @@
+// ignore_for_file: use_key_in_widget_constructors
+
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:news_app/view/Home%20Screen/home_screen.dart';
 
 class SplashScreen extends StatefulWidget {
-  const SplashScreen({super.key});
+  const SplashScreen({Key? key});
 
   @override
   State<SplashScreen> createState() => _SplashScreenState();
@@ -14,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds: 2), () {
+    Timer(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => const HomeScreen()));
     });
@@ -22,26 +24,28 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    // final width = MediaQuery.sizeOf(context).width * 1;
-    // final height = MediaQuery.sizeOf(context).height * 1;
     return const Scaffold(
-      body: SizedBox(
+      body: Center(
+        child: SizedBox(
           height: double.infinity,
           width: double.infinity,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Stack(
+            fit: StackFit.expand,
             children: [
               Image(
-                  image: AssetImage('images/sust-2-sin.jpg'), fit: BoxFit.fill),
-              SizedBox(height: 7),
-              Text('Top Headlines', style: TextStyle(fontSize: 20)),
-              SizedBox(height: 7),
-              SpinKitDualRing(
+                image: AssetImage(
+                  'images/7496275.jpg',
+                ),
+                fit: BoxFit.cover,
+              ),
+              SpinKitCircle(
                 color: Colors.green,
                 size: 50,
-              )
+              ),
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }

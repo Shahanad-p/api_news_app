@@ -1,5 +1,4 @@
 // ignore_for_file: must_be_immutable
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
@@ -24,7 +23,6 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
   final format = DateFormat('MMMM dd, yyyy');
   @override
   Widget build(BuildContext context) {
-    // final width = MediaQuery.sizeOf(context).width * 1;
     final height = MediaQuery.sizeOf(context).height * 1;
     DateTime dateTime = DateTime.parse(widget.newsDate);
     return Scaffold(
@@ -41,7 +39,7 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
       body: Stack(
         children: [
           SizedBox(
-            height: height * .45,
+            height: height * .40,
             child: ClipRRect(
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(40), topRight: Radius.circular(40)),
