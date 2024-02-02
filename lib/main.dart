@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/Controller/home_provider.dart';
 import 'package:news_app/view/Splash%20Screen/splash_screen.dart';
+import 'package:provider/provider.dart';
 
 void main(List<String> args) {
   runApp(const MyApp());
@@ -10,9 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => HomeProvider()),
+      ],
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: SplashScreen(),
+      ),
     );
   }
 }

@@ -2,13 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:intl/intl.dart';
+import 'package:news_app/Controller/home_provider.dart';
 import 'package:news_app/model/catgories_new_model.dart';
 import 'package:news_app/model/news_headlines_model.dart';
 import 'package:news_app/view/Category%20Details/category_details_screen.dart';
 import 'package:news_app/view/Category%20Screen/category_screen.dart';
 import 'package:news_app/view/Home%20Details%20Screen/home_news_details_screen.dart';
-import 'package:news_app/News%20View%20Model/news_view_model.dart';
+import 'package:provider/provider.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,12 +20,13 @@ class HomeScreen extends StatefulWidget {
 enum FilterList { bbcNews, aryNews, bleacherReport, reuters, cnn, alJazeera }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String name = 'bbc-news';
-  FilterList? selectedMenu;
-  NewsViewModel newsViewModel = NewsViewModel();
-  final format = DateFormat('MMMM dd, yyyy');
+  // String name = 'bbc-news';
+  // FilterList? selectedMenu;
+  // NewsViewModel newsViewModel = NewsViewModel();
+  // final format = DateFormat('MMMM dd, yyyy');
   @override
   Widget build(BuildContext context) {
+    final homeProvider = Provider.of<HomeProvider>(context, listen: false);
     final width = MediaQuery.sizeOf(context).width * 1;
     final height = MediaQuery.sizeOf(context).height * 1;
     return Scaffold(
@@ -49,60 +50,61 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         actions: [
           PopupMenuButton<FilterList>(
-              initialValue: selectedMenu,
-              icon: const Icon(
-                Icons.more_vert,
-                color: Colors.black,
+            initialValue: homeProvider.selectedMenu,
+            icon: const Icon(
+              Icons.more_vert,
+              color: Colors.black,
+            ),
+            onSelected: (FilterList item) {
+              if (FilterList.bbcNews.name == item.name) {
+                homeProvider.name = 'bbc-news';
+              }
+              if (FilterList.aryNews.name == item.name) {
+                homeProvider.name = 'ary-news';
+              }
+              if (FilterList.bleacherReport.name == item.name) {
+                homeProvider.name = 'bleacher-report';
+              }
+              if (FilterList.reuters.name == item.name) {
+                homeProvider.name = 'reuters';
+              }
+              if (FilterList.cnn.name == item.name) {
+                homeProvider.name = 'cnn';
+              }
+              if (FilterList.alJazeera.name == item.name) {
+                homeProvider.name = 'al-jazeera-english';
+              }
+              setState(() {
+                homeProvider.selectedMenu = item;
+              });
+            },
+            itemBuilder: (context) => <PopupMenuEntry<FilterList>>[
+              const PopupMenuItem<FilterList>(
+                value: FilterList.bbcNews,
+                child: Text('BBC News'),
               ),
-              onSelected: (FilterList item) {
-                if (FilterList.bbcNews.name == item.name) {
-                  name = 'bbc-news';
-                }
-                if (FilterList.aryNews.name == item.name) {
-                  name = 'ary-news';
-                }
-                if (FilterList.bleacherReport.name == item.name) {
-                  name = 'bleacher-report';
-                }
-                if (FilterList.reuters.name == item.name) {
-                  name = 'reuters';
-                }
-                if (FilterList.cnn.name == item.name) {
-                  name = 'cnn';
-                }
-                if (FilterList.alJazeera.name == item.name) {
-                  name = 'al-jazeera-english';
-                }
-                setState(() {
-                  selectedMenu = item;
-                });
-              },
-              itemBuilder: (context) => <PopupMenuEntry<FilterList>>[
-                    const PopupMenuItem<FilterList>(
-                      value: FilterList.bbcNews,
-                      child: Text('BBC News'),
-                    ),
-                    const PopupMenuItem<FilterList>(
-                      value: FilterList.aryNews,
-                      child: Text('Ary News'),
-                    ),
-                    const PopupMenuItem<FilterList>(
-                      value: FilterList.bleacherReport,
-                      child: Text('Bleacher Report'),
-                    ),
-                    const PopupMenuItem<FilterList>(
-                      value: FilterList.reuters,
-                      child: Text('Reuters'),
-                    ),
-                    const PopupMenuItem<FilterList>(
-                      value: FilterList.cnn,
-                      child: Text('CNN'),
-                    ),
-                    const PopupMenuItem<FilterList>(
-                      value: FilterList.alJazeera,
-                      child: Text('Al Jazeera'),
-                    )
-                  ])
+              const PopupMenuItem<FilterList>(
+                value: FilterList.aryNews,
+                child: Text('Ary News'),
+              ),
+              const PopupMenuItem<FilterList>(
+                value: FilterList.bleacherReport,
+                child: Text('Bleacher Report'),
+              ),
+              const PopupMenuItem<FilterList>(
+                value: FilterList.reuters,
+                child: Text('Reuters'),
+              ),
+              const PopupMenuItem<FilterList>(
+                value: FilterList.cnn,
+                child: Text('CNN'),
+              ),
+              const PopupMenuItem<FilterList>(
+                value: FilterList.alJazeera,
+                child: Text('Al Jazeera'),
+              )
+            ],
+          ),
         ],
       ),
       body: ListView(
@@ -111,7 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
             height: height * .55,
             width: width,
             child: FutureBuilder<NewsHeadlinesModel>(
-              future: newsViewModel.fetchNewsHeadlinesFromApi(name),
+              future: homeProvider.newsViewModel
+                  .fetchNewsHeadlinesFromApi(homeProvider.name),
               builder: ((context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -234,7 +237,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                                           FontWeight.bold),
                                                 ),
                                                 Text(
-                                                  format.format(dateTime),
+                                                  homeProvider.format
+                                                      .format(dateTime),
                                                   maxLines: 2,
                                                   overflow:
                                                       TextOverflow.ellipsis,
@@ -263,7 +267,8 @@ class _HomeScreenState extends State<HomeScreen> {
           Padding(
             padding: const EdgeInsets.all(18.10),
             child: FutureBuilder<CategoriesNewsModel>(
-              future: newsViewModel.fetchCategoriesNewsFromApi('General'),
+              future: homeProvider.newsViewModel
+                  .fetchCategoriesNewsFromApi('General'),
               builder: ((context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -362,7 +367,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                             ),
                                           ),
                                           Text(
-                                            format.format(dateTime),
+                                            homeProvider.format
+                                                .format(dateTime),
                                             style: GoogleFonts.poppins(
                                               fontSize: 12,
                                               fontWeight: FontWeight.w600,
