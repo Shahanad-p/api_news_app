@@ -1,21 +1,21 @@
 // ignore_for_file: must_be_immutable
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:news_app/Controller/home_provider.dart';
+import 'package:provider/provider.dart';
 
 class HomeDetailsScreen extends StatelessWidget {
   String newsImage, newsTitle, newsDate, author, description, content, source;
-  HomeDetailsScreen(
-      {super.key,
-      required this.newsImage,
-      required this.newsTitle,
-      required this.newsDate,
-      required this.author,
-      required this.description,
-      required this.content,
-      required this.source});
-
-  final format = DateFormat('MMMM dd, yyyy');
+  HomeDetailsScreen({
+    super.key,
+    required this.newsImage,
+    required this.newsTitle,
+    required this.newsDate,
+    required this.author,
+    required this.description,
+    required this.content,
+    required this.source,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -71,12 +71,14 @@ class HomeDetailsScreen extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           color: Colors.grey),
                     ),
-                    Text(
-                      format.format(dateTime),
-                      style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey),
+                    Consumer<HomeProvider>(
+                      builder: (context, value, child) => Text(
+                        value.format.format(dateTime),
+                        style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey),
+                      ),
                     )
                   ],
                 ),

@@ -2,25 +2,24 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+import 'package:news_app/Controller/category_provider.dart';
+import 'package:provider/provider.dart';
 
 class CategoryDetailScreen extends StatelessWidget {
   String newsImage, newsTitle, newsDate, author, description, content, source;
-  CategoryDetailScreen(
-      {super.key,
-      required this.newsImage,
-      required this.newsTitle,
-      required this.newsDate,
-      required this.author,
-      required this.description,
-      required this.content,
-      required this.source});
-
-  final format = DateFormat('MMMM dd, yyyy');
+  CategoryDetailScreen({
+    super.key,
+    required this.newsImage,
+    required this.newsTitle,
+    required this.newsDate,
+    required this.author,
+    required this.description,
+    required this.content,
+    required this.source,
+  });
 
   @override
   Widget build(BuildContext context) {
-    // final width = MediaQuery.sizeOf(context).width * 1;
     final height = MediaQuery.sizeOf(context).height * 1;
     DateTime dateTime = DateTime.parse(newsDate);
     return Scaffold(
@@ -73,12 +72,14 @@ class CategoryDetailScreen extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           color: Colors.grey),
                     ),
-                    Text(
-                      format.format(dateTime),
-                      style: const TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.grey),
+                    Consumer<CategoryProvider>(
+                      builder: (context, value, child) => Text(
+                        value.format.format(dateTime),
+                        style: const TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.grey),
+                      ),
                     )
                   ],
                 ),
