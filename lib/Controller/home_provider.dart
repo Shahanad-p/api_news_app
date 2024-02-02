@@ -8,4 +8,9 @@ class HomeProvider extends ChangeNotifier {
   FilterList? selectedMenu;
   NewsViewModel newsViewModel = NewsViewModel();
   final format = DateFormat('MMMM dd, yyyy');
+
+  selecMenu(item) {
+    selectedMenu = item;
+    notifyListeners();
+  }
 }

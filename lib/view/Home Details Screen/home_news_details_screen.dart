@@ -3,7 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class HomeDetailsScreen extends StatefulWidget {
+class HomeDetailsScreen extends StatelessWidget {
   String newsImage, newsTitle, newsDate, author, description, content, source;
   HomeDetailsScreen(
       {super.key,
@@ -15,16 +15,12 @@ class HomeDetailsScreen extends StatefulWidget {
       required this.content,
       required this.source});
 
-  @override
-  State<HomeDetailsScreen> createState() => _HomeDetailsScreenState();
-}
-
-class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
   final format = DateFormat('MMMM dd, yyyy');
+
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.sizeOf(context).height * 1;
-    DateTime dateTime = DateTime.parse(widget.newsDate);
+    DateTime dateTime = DateTime.parse(newsDate);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -44,7 +40,7 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(40), topRight: Radius.circular(40)),
               child: CachedNetworkImage(
-                imageUrl: widget.newsImage,
+                imageUrl: newsImage,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => const Center(
                   child: CircularProgressIndicator(),
@@ -60,7 +56,7 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
             child: ListView(
               children: [
                 Text(
-                  widget.newsTitle,
+                  newsTitle,
                   style: const TextStyle(
                       fontSize: 22, fontWeight: FontWeight.w700),
                 ),
@@ -69,7 +65,7 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      widget.source,
+                      source,
                       style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -88,7 +84,7 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
                   height: height * .03,
                 ),
                 Text(
-                  widget.description,
+                  description,
                   style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -98,7 +94,7 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
                   height: height * .02,
                 ),
                 Text(
-                  widget.content,
+                  content,
                   style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -108,7 +104,7 @@ class _HomeDetailsScreenState extends State<HomeDetailsScreen> {
                   height: height * .02,
                 ),
                 Text(
-                  widget.author,
+                  author,
                   style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/Controller/category_provider.dart';
 import 'package:news_app/Controller/home_provider.dart';
 import 'package:news_app/view/Splash%20Screen/splash_screen.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (context) => HomeProvider()),
+        ChangeNotifierProvider(create: (context) => CategoryProvider()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

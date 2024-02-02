@@ -4,7 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-class CategoryDetailScreen extends StatefulWidget {
+class CategoryDetailScreen extends StatelessWidget {
   String newsImage, newsTitle, newsDate, author, description, content, source;
   CategoryDetailScreen(
       {super.key,
@@ -16,17 +16,13 @@ class CategoryDetailScreen extends StatefulWidget {
       required this.content,
       required this.source});
 
-  @override
-  State<CategoryDetailScreen> createState() => _CategoryDetailScreenState();
-}
-
-class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
   final format = DateFormat('MMMM dd, yyyy');
+
   @override
   Widget build(BuildContext context) {
     // final width = MediaQuery.sizeOf(context).width * 1;
     final height = MediaQuery.sizeOf(context).height * 1;
-    DateTime dateTime = DateTime.parse(widget.newsDate);
+    DateTime dateTime = DateTime.parse(newsDate);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -46,7 +42,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
               borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(40), topRight: Radius.circular(40)),
               child: CachedNetworkImage(
-                imageUrl: widget.newsImage,
+                imageUrl: newsImage,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => const Center(
                   child: CircularProgressIndicator(),
@@ -62,7 +58,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
             child: ListView(
               children: [
                 Text(
-                  widget.newsTitle,
+                  newsTitle,
                   style: const TextStyle(
                       fontSize: 22, fontWeight: FontWeight.w700),
                 ),
@@ -71,7 +67,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      widget.source,
+                      source,
                       style: const TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
@@ -90,7 +86,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                   height: height * .03,
                 ),
                 Text(
-                  widget.description,
+                  description,
                   style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -100,7 +96,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                   height: height * .02,
                 ),
                 Text(
-                  widget.content,
+                  content,
                   style: const TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
@@ -110,7 +106,7 @@ class _CategoryDetailScreenState extends State<CategoryDetailScreen> {
                   height: height * .02,
                 ),
                 Text(
-                  widget.author,
+                  author,
                   style: const TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
