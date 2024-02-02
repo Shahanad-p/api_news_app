@@ -13,5 +13,4 @@ class HomeProvider extends ChangeNotifier {
     selectedMenu = item;
     notifyListeners();
   }
-  
 }

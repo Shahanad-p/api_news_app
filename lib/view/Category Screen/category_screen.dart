@@ -90,25 +90,33 @@ class CategoryScreen extends StatelessWidget {
                               .toString());
                           return InkWell(
                             onTap: () {
-                              Navigator.of(context).push(MaterialPageRoute(
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
                                   builder: (context) => HomeDetailsScreen(
-                                      newsImage: snapshot
-                                          .data!.articles![index].urlToImage
-                                          .toString(),
-                                      newsTitle: snapshot
-                                          .data!.articles![index].title
-                                          .toString(),
-                                      newsDate: snapshot
-                                          .data!.articles![index].publishedAt
-                                          .toString(),
-                                      author: snapshot
-                                          .data!.articles![index].author
-                                          .toString(),
-                                      description: snapshot
-                                          .data!.articles![index].description
-                                          .toString(),
-                                      content: snapshot.data!.articles![index].content.toString(),
-                                      source: snapshot.data!.articles![index].source!.name.toString())));
+                                    newsImage: snapshot
+                                        .data!.articles![index].urlToImage
+                                        .toString(),
+                                    newsTitle: snapshot
+                                        .data!.articles![index].title
+                                        .toString(),
+                                    newsDate: snapshot
+                                        .data!.articles![index].publishedAt
+                                        .toString(),
+                                    author: snapshot
+                                        .data!.articles![index].author
+                                        .toString(),
+                                    description: snapshot
+                                        .data!.articles![index].description
+                                        .toString(),
+                                    content: snapshot
+                                        .data!.articles![index].content
+                                        .toString(),
+                                    source: snapshot
+                                        .data!.articles![index].source!.name
+                                        .toString(),
+                                  ),
+                                ),
+                              );
                             },
                             child: Padding(
                               padding: const EdgeInsets.only(bottom: 15),
