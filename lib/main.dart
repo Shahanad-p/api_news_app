@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Controller/category_provider.dart';
 import 'package:news_app/Controller/home_provider.dart';
-import 'package:news_app/view/Splash%20Screen/splash_screen.dart';
+import 'package:news_app/controller/news_provider.dart';
+import 'package:news_app/view/splash%20screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main(List<String> args) {
@@ -17,6 +18,7 @@ class MyApp extends StatelessWidget {
       providers: [
         ChangeNotifierProvider(create: (context) => HomeProvider()),
         ChangeNotifierProvider(create: (context) => CategoryProvider()),
+        ChangeNotifierProvider(create: (context) => NewsProvider()),
       ],
       child: const MaterialApp(
         debugShowCheckedModeBanner: false,

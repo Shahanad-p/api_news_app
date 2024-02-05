@@ -3,23 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/Controller/home_provider.dart';
+import 'package:news_app/Service/news_service.dart';
 import 'package:news_app/model/news_headlines_model.dart';
-import 'package:news_app/view/Category%20Screen/category_screen.dart';
 import 'package:news_app/view/Home%20Details%20Screen/home_news_details_screen.dart';
-import 'package:news_app/view/Home%20Screen/home_appbar.dart';
-import 'package:news_app/view/Home%20Screen/home_category.dart';
+
+import 'package:news_app/view/widgets/home_appbar.dart';
+import 'package:news_app/view/widgets/home_category.dart';
 import 'package:provider/provider.dart';
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+class HomeScreen extends StatelessWidget {
+  HomeScreen({super.key});
+  final Services newsViewModel = Services();
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-enum FilterList { bbcNews, aryNews, bleacherReport, reuters, cnn, alJazeera }
-
-class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.sizeOf(context).width * 1;
@@ -193,3 +188,5 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
+
+enum FilterList { bbcNews, aryNews, bleacherReport, reuters, cnn, alJazeera }

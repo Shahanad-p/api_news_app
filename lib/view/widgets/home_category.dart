@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/model/catgories_new_model.dart';
-import 'package:news_app/view/Category%20Details/category_details_screen.dart';
+import 'package:news_app/view/category%20details/category_details_screen.dart';
 import 'package:provider/provider.dart';
 import '../../Controller/home_provider.dart';
 
-Consumer<HomeProvider> homeCategoryBuild(double height, double width) {
+Widget homeCategoryBuild(double height, double width) {
   return Consumer<HomeProvider>(
     builder: (context, value, child) => Padding(
       padding: const EdgeInsets.all(18.10),

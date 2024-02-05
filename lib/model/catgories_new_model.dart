@@ -1,5 +1,4 @@
 // ignore_for_file: unnecessary_new, prefer_collection_literals, unnecessary_this
-
 class CategoriesNewsModel {
   String? status;
   int? totalResults;

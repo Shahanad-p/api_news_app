@@ -16,6 +16,7 @@ class HomeDetailsScreen extends StatelessWidget {
     required this.content,
     required this.source,
   });
+  // final Services newsViewModel = Services();
 
   @override
   Widget build(BuildContext context) {
