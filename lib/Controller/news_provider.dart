@@ -8,7 +8,9 @@ class NewsProvider extends ChangeNotifier {
   Future<NewsHeadlinesModel> fetchNewsHeadlinesFromApi(
       String channelName) async {
     try {
-      return await _services.fetchNewsHeadlinesFromApi(channelName);
+      final headlineDatas =
+          await _services.fetchNewsHeadlinesFromApi(channelName);
+      return headlineDatas;
     } catch (e) {
       throw Exception('Error fetching news channel headlines');
     }
@@ -17,7 +19,8 @@ class NewsProvider extends ChangeNotifier {
   Future<CategoriesNewsModel> fetchCategoriesNewsFromApi(
       String category) async {
     try {
-      return await _services.fetchCategoriesNewsFromApi(category);
+      final categoryData = await _services.fetchCategoriesNewsFromApi(category);
+      return categoryData;
     } catch (e) {
       throw Exception('Error fetching category news');
     }

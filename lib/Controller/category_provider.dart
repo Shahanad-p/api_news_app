@@ -19,6 +19,4 @@ class CategoryProvider extends ChangeNotifier {
     categoryName = categoriesList[index];
     notifyListeners();
   }
-
-
 }

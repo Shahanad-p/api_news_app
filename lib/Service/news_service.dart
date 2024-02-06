@@ -17,7 +17,9 @@ class Services {
       final body = jsonDecode(Response.body);
       return NewsHeadlinesModel.fromJson(body);
     }
-    throw Exception('Error');
+    const userMessage =
+        'Sorry, we encountered an error while fetching news. Please try again later!';
+    throw Exception(userMessage);
   }
 
   Future<CategoriesNewsModel> fetchCategoriesNewsFromApi(
@@ -31,6 +33,8 @@ class Services {
       final body = jsonDecode(Response.body);
       return CategoriesNewsModel.fromJson(body);
     }
-    throw Exception('Error');
+    const userMessage =
+        'Sorry, we encountered an error while fetching news. Please try again later!';
+    throw Exception(userMessage);
   }
 }
