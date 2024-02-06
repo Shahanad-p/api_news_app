@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/Controller/home_provider.dart';
-import 'package:news_app/view/category%20screen/category_screen.dart';
-import 'package:news_app/view/home%20screen/home_screen.dart';
+import 'package:news_app/view/category_screen/category_screen.dart';
+import 'package:news_app/view/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
 
 AppBar buildAppBar(BuildContext context) {

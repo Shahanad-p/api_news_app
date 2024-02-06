@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/Controller/home_provider.dart';
 import 'package:news_app/Service/news_service.dart';
 import 'package:news_app/model/news_headlines_model.dart';
-import 'package:news_app/view/Home%20Details%20Screen/home_news_details_screen.dart';
+import 'package:news_app/view/home_details_screen/home_news_details_screen.dart';
 
 import 'package:news_app/view/widgets/home_appbar.dart';
 import 'package:news_app/view/widgets/home_category.dart';

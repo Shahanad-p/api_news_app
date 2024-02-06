@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:news_app/view%20model/news_view_model.dart';
+import 'package:news_app/view_model/news_view_model.dart';
 
 class CategoryProvider extends ChangeNotifier {
   NewsViewModel newsViewModel = NewsViewModel();

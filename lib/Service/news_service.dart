@@ -1,6 +1,5 @@
 // ignore_for_file: non_constant_identifier_names
 import 'dart:convert';
-import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
 import 'package:news_app/service/api_key/api_key.dart';
 import 'package:news_app/model/catgories_new_model.dart';
@@ -28,9 +27,6 @@ class Services {
 
     final Response = await http.get(Uri.parse(url));
 
-    if (kDebugMode) {
-      print(Response.body);
-    }
     if (Response.statusCode == 200) {
       final body = jsonDecode(Response.body);
       return CategoriesNewsModel.fromJson(body);

@@ -5,7 +5,6 @@ import 'package:news_app/model/news_headlines_model.dart';
 
 class NewsProvider extends ChangeNotifier {
   final Services _services = Services();
-
   Future<NewsHeadlinesModel> fetchNewsHeadlinesFromApi(
       String channelName) async {
     try {

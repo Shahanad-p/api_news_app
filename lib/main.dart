@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/Controller/category_provider.dart';
 import 'package:news_app/Controller/home_provider.dart';
 import 'package:news_app/controller/news_provider.dart';
-import 'package:news_app/view/splash%20screen/splash_screen.dart';
+import 'package:news_app/view/splash_screen/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main(List<String> args) {

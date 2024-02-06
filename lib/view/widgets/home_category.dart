@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/model/catgories_new_model.dart';
-import 'package:news_app/view/category%20details/category_details_screen.dart';
+import 'package:news_app/view/category_details/category_details_screen.dart';
 import 'package:provider/provider.dart';
 import '../../Controller/home_provider.dart';
 

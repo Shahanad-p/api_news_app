@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/Controller/category_provider.dart';
 import 'package:news_app/Service/news_service.dart';
 import 'package:news_app/model/catgories_new_model.dart';
-import 'package:news_app/view/Home%20Details%20Screen/home_news_details_screen.dart';
+import 'package:news_app/view/home_details_screen/home_news_details_screen.dart';
 import 'package:provider/provider.dart';
 
 class CategoryScreen extends StatelessWidget {
