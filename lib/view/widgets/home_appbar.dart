@@ -8,7 +8,7 @@ AppBar buildAppBar(BuildContext context) {
   return AppBar(
     elevation: 0,
     backgroundColor: Colors.white,
-    title: const Text(
+    title:  Text(
       'News',
       style: TextStyle(color: Colors.black),
     ),
@@ -22,14 +22,14 @@ AppBar buildAppBar(BuildContext context) {
           ),
         );
       },
-      icon: const Icon(Icons.apps),
+      icon:  Icon(Icons.apps),
       color: Colors.black,
     ),
     actions: [
       Consumer<HomeProvider>(
         builder: (context, value, child) => PopupMenuButton<FilterList>(
           initialValue: value.selectedMenu,
-          icon: const Icon(
+          icon:  Icon(
             Icons.more_vert,
             color: Colors.black,
           ),
@@ -55,27 +55,27 @@ AppBar buildAppBar(BuildContext context) {
             value.selecMenu(item);
           },
           itemBuilder: (context) => <PopupMenuEntry<FilterList>>[
-            const PopupMenuItem<FilterList>(
+             PopupMenuItem<FilterList>(
               value: FilterList.bbcNews,
               child: Text('BBC News'),
             ),
-            const PopupMenuItem<FilterList>(
+             PopupMenuItem<FilterList>(
               value: FilterList.aryNews,
               child: Text('Ary News'),
             ),
-            const PopupMenuItem<FilterList>(
+             PopupMenuItem<FilterList>(
               value: FilterList.bleacherReport,
               child: Text('Bleacher Report'),
             ),
-            const PopupMenuItem<FilterList>(
+             PopupMenuItem<FilterList>(
               value: FilterList.reuters,
               child: Text('Reuters'),
             ),
-            const PopupMenuItem<FilterList>(
+             PopupMenuItem<FilterList>(
               value: FilterList.cnn,
               child: Text('CNN'),
             ),
-            const PopupMenuItem<FilterList>(
+             PopupMenuItem<FilterList>(
               value: FilterList.alJazeera,
               child: Text('Al Jazeera'),
             )

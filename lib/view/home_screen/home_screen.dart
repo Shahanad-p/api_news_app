@@ -31,7 +31,7 @@ class HomeScreen extends StatelessWidget {
                     value.newsViewModel.fetchNewsHeadlinesFromApi(value.name),
                 builder: ((context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
+                    return  Center(
                       child: SpinKitCircle(
                         size: 50,
                         color: Colors.green,
@@ -83,14 +83,14 @@ class HomeScreen extends StatelessWidget {
                                           .toString(),
                                       fit: BoxFit.cover,
                                       placeholder: (context, url) =>
-                                          const SizedBox(
+                                           SizedBox(
                                         child: SpinKitFadingFour(
                                           color: Colors.amber,
                                           size: 50,
                                         ),
                                       ),
                                       errorWidget: (context, url, error) =>
-                                          const Icon(
+                                           Icon(
                                         Icons.error_outline,
                                         color: Colors.red,
                                       ),
@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                                             BorderRadius.circular(12)),
                                     child: Container(
                                       alignment: Alignment.bottomCenter,
-                                      padding: const EdgeInsets.all(15),
+                                      padding:  EdgeInsets.all(15),
                                       child: Column(
                                         mainAxisAlignment:
                                             MainAxisAlignment.center,

@@ -10,12 +10,12 @@ import '../../Controller/home_provider.dart';
 Widget homeCategoryBuild(double height, double width) {
   return Consumer<HomeProvider>(
     builder: (context, value, child) => Padding(
-      padding: const EdgeInsets.all(18.10),
+      padding:  EdgeInsets.all(18.10),
       child: FutureBuilder<CategoriesNewsModel>(
         future: value.newsViewModel.fetchCategoriesNewsFromApi('General'),
         builder: ((context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(
+            return  Center(
               child: SpinKitCircle(
                 size: 50,
                 color: Colors.green,
@@ -51,7 +51,7 @@ Widget homeCategoryBuild(double height, double width) {
                                 .toString())));
                   },
                   child: Padding(
-                    padding: const EdgeInsets.only(bottom: 15),
+                    padding:  EdgeInsets.only(bottom: 15),
                     child: Row(
                       children: [
                         ClipRRect(
@@ -62,7 +62,7 @@ Widget homeCategoryBuild(double height, double width) {
                             fit: BoxFit.cover,
                             height: height * .18,
                             width: width * .3,
-                            placeholder: (context, url) => const SizedBox(
+                            placeholder: (context, url) =>  SizedBox(
                               child: Center(
                                 child: SpinKitCircle(
                                   size: 50,
@@ -70,7 +70,7 @@ Widget homeCategoryBuild(double height, double width) {
                                 ),
                               ),
                             ),
-                            errorWidget: (context, url, error) => const Icon(
+                            errorWidget: (context, url, error) =>  Icon(
                               Icons.error_outline,
                               color: Colors.red,
                             ),
@@ -79,7 +79,7 @@ Widget homeCategoryBuild(double height, double width) {
                         Expanded(
                           child: Container(
                             height: height * .18,
-                            padding: const EdgeInsets.only(left: 15),
+                            padding:  EdgeInsets.only(left: 15),
                             child: Column(
                               children: [
                                 Text(
@@ -92,7 +92,7 @@ Widget homeCategoryBuild(double height, double width) {
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                const Spacer(),
+                                 Spacer(),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [

@@ -18,17 +18,17 @@ class CategoryScreen extends StatelessWidget {
     final height = MediaQuery.sizeOf(context).height * 1;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title:  Text(
           'Categories',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme:  IconThemeData(color: Colors.black),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 20),
+        padding:  EdgeInsets.symmetric(horizontal: 20),
         child: Column(children: [
           Consumer<CategoryProvider>(
             builder: (context, value, child) => SizedBox(
@@ -42,7 +42,7 @@ class CategoryScreen extends StatelessWidget {
                       value.categoryList(index);
                     },
                     child: Padding(
-                      padding: const EdgeInsets.only(right: 12),
+                      padding:  EdgeInsets.only(right: 12),
                       child: Container(
                         decoration: BoxDecoration(
                             color: value.categoryName ==
@@ -51,7 +51,7 @@ class CategoryScreen extends StatelessWidget {
                                 : Colors.grey,
                             borderRadius: BorderRadius.circular(20)),
                         child: Padding(
-                          padding: const EdgeInsets.all(15),
+                          padding:  EdgeInsets.all(15),
                           child: Text(value.categoriesList[index].toString(),
                               style: GoogleFonts.poppins(
                                   fontSize: 15,
@@ -65,7 +65,7 @@ class CategoryScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 20),
+           SizedBox(height: 20),
           Consumer<CategoryProvider>(
             builder: (context, value, child) => Expanded(
               child: FutureBuilder<CategoriesNewsModel>(
@@ -73,7 +73,7 @@ class CategoryScreen extends StatelessWidget {
                     .fetchCategoriesNewsFromApi(value.categoryName),
                 builder: ((context, snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(
+                    return  Center(
                       child: SpinKitCircle(size: 50, color: Colors.green),
                     );
                   } else {
@@ -110,7 +110,7 @@ class CategoryScreen extends StatelessWidget {
                             );
                           },
                           child: Padding(
-                            padding: const EdgeInsets.only(bottom: 15),
+                            padding:  EdgeInsets.only(bottom: 15),
                             child: Row(children: [
                               ClipRRect(
                                 borderRadius: BorderRadius.circular(15),
@@ -121,21 +121,21 @@ class CategoryScreen extends StatelessWidget {
                                   fit: BoxFit.cover,
                                   height: height * .18,
                                   width: width * .3,
-                                  placeholder: (context, url) => const SizedBox(
+                                  placeholder: (context, url) =>  SizedBox(
                                     child: Center(
                                       child: SpinKitCircle(
                                           size: 50, color: Colors.green),
                                     ),
                                   ),
                                   errorWidget: (context, url, error) =>
-                                      const Icon(Icons.error_outline,
+                                       Icon(Icons.error_outline,
                                           color: Colors.red),
                                 ),
                               ),
                               Expanded(
                                 child: Container(
                                   height: height * .18,
-                                  padding: const EdgeInsets.only(left: 15),
+                                  padding:  EdgeInsets.only(left: 15),
                                   child: Column(children: [
                                     Text(
                                       snapshot.data!.articles![index].title
@@ -146,7 +146,7 @@ class CategoryScreen extends StatelessWidget {
                                           color: Colors.black54,
                                           fontWeight: FontWeight.w700),
                                     ),
-                                    const Spacer(),
+                                     Spacer(),
                                     Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,

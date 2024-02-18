@@ -23,26 +23,26 @@ class CategoryDetailScreen extends StatelessWidget {
     DateTime dateTime = DateTime.parse(newsDate);
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
+        title:  Text(
           'Details',
           style: TextStyle(color: Color.fromARGB(255, 9, 59, 11)),
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
         elevation: 0,
-        iconTheme: const IconThemeData(color: Colors.black),
+        iconTheme:  IconThemeData(color: Colors.black),
       ),
       body: Stack(
         children: [
           SizedBox(
             height: height * .45,
             child: ClipRRect(
-              borderRadius: const BorderRadius.only(
+              borderRadius:  BorderRadius.only(
                   topLeft: Radius.circular(40), topRight: Radius.circular(40)),
               child: CachedNetworkImage(
                 imageUrl: newsImage,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => const Center(
+                placeholder: (context, url) =>  Center(
                   child: CircularProgressIndicator(),
                 ),
               ),
@@ -51,13 +51,13 @@ class CategoryDetailScreen extends StatelessWidget {
           Container(
             height: height * .6,
             margin: EdgeInsets.only(top: height * .4),
-            padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
-            decoration: const BoxDecoration(color: Colors.white),
+            padding:  EdgeInsets.only(top: 20, right: 20, left: 20),
+            decoration:  BoxDecoration(color: Colors.white),
             child: ListView(
               children: [
                 Text(
                   newsTitle,
-                  style: const TextStyle(
+                  style:  TextStyle(
                       fontSize: 22, fontWeight: FontWeight.w700),
                 ),
                 SizedBox(height: height * .02),
@@ -66,7 +66,7 @@ class CategoryDetailScreen extends StatelessWidget {
                   children: [
                     Text(
                       source,
-                      style: const TextStyle(
+                      style:  TextStyle(
                           fontSize: 15,
                           fontWeight: FontWeight.w500,
                           color: Colors.grey),
@@ -74,7 +74,7 @@ class CategoryDetailScreen extends StatelessWidget {
                     Consumer<CategoryProvider>(
                       builder: (context, value, child) => Text(
                         value.format.format(dateTime),
-                        style: const TextStyle(
+                        style:  TextStyle(
                             fontSize: 14,
                             fontWeight: FontWeight.w500,
                             color: Colors.grey),
@@ -87,7 +87,7 @@ class CategoryDetailScreen extends StatelessWidget {
                 ),
                 Text(
                   description,
-                  style: const TextStyle(
+                  style:  TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Color.fromARGB(255, 10, 90, 12)),
@@ -97,7 +97,7 @@ class CategoryDetailScreen extends StatelessWidget {
                 ),
                 Text(
                   content,
-                  style: const TextStyle(
+                  style:  TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                       color: Color.fromARGB(255, 72, 17, 17)),
@@ -107,7 +107,7 @@ class CategoryDetailScreen extends StatelessWidget {
                 ),
                 Text(
                   author,
-                  style: const TextStyle(
+                  style:  TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w500,
                       color: Color.fromARGB(255, 107, 104, 104)),

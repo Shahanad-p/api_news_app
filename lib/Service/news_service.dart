@@ -1,7 +1,7 @@
 // ignore_for_file: non_constant_identifier_names
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:news_app/service/api_key/api_key.dart';
+import 'package:news_app/constant/constant_key.dart';
 import 'package:news_app/model/catgories_new_model.dart';
 import 'package:news_app/model/news_headlines_model.dart';
 
@@ -9,7 +9,7 @@ class Services {
   Future<NewsHeadlinesModel> fetchNewsHeadlinesFromApi(
       String channelName) async {
     String url =
-        'https://newsapi.org/v2/top-headlines?sources=$channelName&apiKey=$apiHeadlineKey';
+        'https://newsapi.org/v2/top-headlines?sources=$channelName&apiKey=${ConstantKey.headlineKey}';
 
     final Response = await http.get(Uri.parse(url));
 
@@ -25,7 +25,7 @@ class Services {
   Future<CategoriesNewsModel> fetchCategoriesNewsFromApi(
       String category) async {
     String url =
-        'https://newsapi.org/v2/everything?q=$category&apiKey=$apiCategoryKey';
+        'https://newsapi.org/v2/everything?q=$category&apiKey=${ConstantKey.categoryKey}';
 
     final Response = await http.get(Uri.parse(url));
 
